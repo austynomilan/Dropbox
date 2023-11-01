@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+    .listedItems{
+        @apply mt-2 cursor-pointer hover:bg-gray-300 h-6 flex items-center
+    }
+}
