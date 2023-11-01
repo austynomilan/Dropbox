@@ -1,31 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '/images/dblg.png';
+import DropBox from '/images/Dropbox-logo.svg';
+import Backup from '/images/Backup-logo-nav.svg';
+import Sign from '/images/dropbox-sign-logo.svg';
+import DocSend from '/images/DocSend-logo-nav.svg';
+import Capture from '/images/Capture-logo-nav.svg';
+import Replay from '/images/replay-logo-nav.svg'
+import Dash from '/images/dash-logo-nav.svg'
 
 export default function Nav() {
+  const [isHovered, setIsHovered] = useState(false);
+  const [subDivHovered, setSubDivHovered] = useState(false);
+// crontrolling the visibility of the parent div based on hover
+  const handleParentHover = () => {
+    setIsHovered(true);
+  };
+  const handleParentUnhover = () => {
+    setIsHovered(false);
+  };
+
+//controls the visibility of the subdiv on hover
+  const handleSubDivHover = () => {
+    setSubDivHovered(true);
+  };
+  const handleSubDivUnhover = () => {
+    setSubDivHovered(false);
+  };
+
   return (
     <div class='flex items-center justify-between'>
+      <div class='flex items-center'>
         <div class='flex items-center'>
-            <div class='flex items-center'>
-        <img src={Logo} alt='dropbox logo' class='h-10 bg-blue-500' />
-        <span class='font-bold text-2xl ml-2'>Dropbox</span>
-      </div>
-      <div class='relative'>
-        <ul class='flex mt-2'>
-          <li class='ml-2'>
-            <a href='#'>Why Dropbox?</a>
-            <div class='bg-gray-100 h-auto pb-2 absolute flex justify-between mt-4 w-[28rem]'>
+          <img src={Logo} alt='dropbox logo' class='h-10 bg-blue-500' />
+          <span class='font-bold text-2xl ml-2'>Dropbox</span>
+        </div>
+        <div class='relative'>
+          <ul class='flex mt-2'>
+            <li class='ml-2'>
+              <a
+                href='#'
+                class='hover:bg-[#f2eee8] pt-7 pb-7'
+                onMouseEnter={handleParentHover}
+                onMouseLeave={handleParentUnhover}
+              >
+                Why Dropbox?
+              </a>
+              <div
+                class={`bg-[#f2eee8] h-auto pb-2 absolute justify-between mt-4 w-[28rem] ${
+                  isHovered || subDivHovered ? 'flex' : 'hidden'
+                }`}
+                onMouseEnter={handleSubDivHover}
+                onMouseLeave={handleSubDivUnhover}
+              >
                 <section class='ml-4'>
-                <h4 class='font-semibold'>OverView</h4>
-                    <ul class='text-xs w-[12rem]'>
-                        <li class='listedItems'>Get Inspired</li>
-                        <li class='listedItems'>What customers say</li>
-                        <li class='listedItems'>App Integrations</li>
-                        <li class='listedItems'>Resources</li>
-                    </ul>
+                  <h4 class='font-semibold'>OverView</h4>
+                  <ul class='text-xs w-[12rem]'>
+                    <li class='listedItems'>Get Inspired</li>
+                    <li class='listedItems'>What customers say</li>
+                    <li class='listedItems'>App Integrations</li>
+                    <li class='listedItems'>Resources</li>
+                  </ul>
                 </section>
                 <section class='mr-28'>
-                <h4 class='font-semibold'>OverView</h4>
-                <ul class='text-xs w-[15rem]'>
+                  <h4 class='font-semibold'>OverView</h4>
+                  <ul class='text-xs w-[15rem]'>
                     <li class='listedItems'>Share files</li>
                     <li class='listedItems'>Share and organize</li>
                     <li class='listedItems'>Sync your device</li>
@@ -35,23 +73,91 @@ export default function Nav() {
                     <li class='listedItems'>Always-on backup</li>
                     <li class='listedItems'>Sign a document</li>
                     <li class='listedItems'>Track document analytics</li>
-                </ul>
+                  </ul>
                 </section>
-            </div>
-          </li>
-          <li class='ml-2'>
-            <a href='#'>Products</a>
-          </li>
-          <li class='ml-2'>
-            <a href='#'>Solutions</a>
-          </li>
-          <li class='ml-2'>
-            <a href='#'>Pricing</a>
-          </li>
-        </ul>
-      </div>
+              </div>
+            </li>
+            <li class='ml-2'>
+              <a 
+               onMouseEnter={handleParentHover}
+               onMouseLeave={handleParentUnhover}
+              href='#'>Products</a>
+              <div
+              onMouseEnter={handleSubDivHover}
+              onMouseLeave={handleSubDivUnhover}
+              class={`absolute w-[15rem] bg-[#f2eee8] mt-4 ${
+                isHovered || subDivHovered ? 'block' : 'hidden'
+              }`}>
+                    <h4 class='font-semibold text-xs mb-4 text-center mt-2'>Do more than store with dropbox</h4>
+                    <div class=''>
+                        <section class='subProducts'>
+                            <img src={DropBox} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Dropbox</h4>
+                                <p class='text-[0.625rem]'>Store, share, and access files <br />across devices</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={Backup} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Backup</h4>
+                                <p class='text-[0.625rem]'>Automatically back up your devices</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={Sign} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Sign</h4>
+                                <p class='text-[0.625rem]'>Request and add signature to <br />documents</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={DocSend} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>DocSend</h4>
+                                <p class='text-[0.625rem]'>Send documents securely and <br />track activity</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={Capture} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Capture</h4>
+                                <p class='text-[0.625rem]'>Capture screen recording and video <br />messages</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={Replay} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Replay</h4>
+                                <p class='text-[0.625rem]'>Review and approve video faster</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src={Dash} alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Dash(beta)</h4>
+                                <p class='text-[0.625rem]'>Search, organize and find answers</p>                                
+                            </div>
+                        </section>
+                        <section class='subProducts'>
+                            <img src="" alt="" />
+                            <div class='ml-2'>
+                                <h4 class='text-xs'>Early access</h4>
+                                <p class='text-[0.625rem]'>Preview new product experiences</p>                                
+                            </div>
+                        </section>
+                    </div>
+              </div>
+            </li>
+            <li class='ml-2'>
+              <a href='#'>Solutions</a>
+            </li>
+            <li class='ml-2'>
+              <a href='#'>Pricing</a>
+            </li>
+          </ul>
         </div>
-      
+      </div>
 
       <div class='flex items-center'>
         <div>
@@ -78,7 +184,7 @@ export default function Nav() {
             <li class='ml-2'>Login</li>
           </ul>
         </div>
-        <div >
+        <div>
           <button class='ml-2 mt-2'>Get Started</button>
         </div>
       </div>
