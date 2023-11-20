@@ -5,26 +5,26 @@ import Backup from '/images/Backup-logo-nav.svg';
 import Sign from '/images/dropbox-sign-logo.svg';
 import DocSend from '/images/DocSend-logo-nav.svg';
 import Capture from '/images/Capture-logo-nav.svg';
-import Replay from '/images/replay-logo-nav.svg'
-import Dash from '/images/dash-logo-nav.svg'
+import Replay from '/images/replay-logo-nav.svg';
+import Dash from '/images/dash-logo-nav.svg';
 
 export default function Nav() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [subDivHovered, setSubDivHovered] = useState(false);
-// crontrolling the visibility of the parent div based on hover
-  const handleParentHover = () => {
-    setIsHovered(true);
-  };
-  const handleParentUnhover = () => {
-    setIsHovered(false);
+  // State to control the visibility of the hovered subdiv
+  const [hoveredSubDiv, setHoveredSubDiv] = useState(null);
+
+  // Function to handle mouse entering the parent div
+  const handleMouseEnter = (subDivId) => {
+    setHoveredSubDiv(subDivId);
   };
 
-//controls the visibility of the subdiv on hover
-  const handleSubDivHover = () => {
-    setSubDivHovered(true);
+  // Function to handle mouse leaving the parent div
+  const handleMouseLeave = () => {
+    setHoveredSubDiv(null);
   };
-  const handleSubDivUnhover = () => {
-    setSubDivHovered(false);
+
+  // Function to determine if a subDiv is visible
+  const isSubDivVisible = (subDivId) => {
+    return hoveredSubDiv === subDivId;
   };
 
   return (
@@ -40,17 +40,17 @@ export default function Nav() {
               <a
                 href='#'
                 class='hover:bg-[#f2eee8] pt-7 pb-7'
-                onMouseEnter={handleParentHover}
-                onMouseLeave={handleParentUnhover}
+                onMouseEnter={() => handleMouseEnter('whyDropbox')}
+                onMouseLeave={handleMouseLeave}
               >
                 Why Dropbox?
               </a>
               <div
                 class={`bg-[#f2eee8] h-auto pb-2 absolute justify-between mt-4 w-[28rem] ${
-                  isHovered || subDivHovered ? 'flex' : 'hidden'
+                  isSubDivVisible('whyDropbox') ? 'flex' : 'hidden'
                 }`}
-                onMouseEnter={handleSubDivHover}
-                onMouseLeave={handleSubDivUnhover}
+                onMouseEnter={() => handleMouseEnter('whyDropbox')}
+                onMouseLeave={handleMouseLeave}
               >
                 <section class='ml-4'>
                   <h4 class='font-semibold'>OverView</h4>
@@ -78,82 +78,142 @@ export default function Nav() {
               </div>
             </li>
             <li class='ml-2'>
-              <a 
-               onMouseEnter={handleParentHover}
-               onMouseLeave={handleParentUnhover}
-              href='#'>Products</a>
+              <a
+                class='hover:bg-[#f2eee8] pt-7 pb-7'
+                onMouseEnter={() => handleMouseEnter('Products')}
+                onMouseLeave={handleMouseLeave}
+                href='#'
+              >
+                Products
+              </a>
               <div
-              onMouseEnter={handleSubDivHover}
-              onMouseLeave={handleSubDivUnhover}
-              class={`absolute w-[15rem] bg-[#f2eee8] mt-4 ${
-                isHovered || subDivHovered ? 'block' : 'hidden'
-              }`}>
-                    <h4 class='font-semibold text-xs mb-4 text-center mt-2'>Do more than store with dropbox</h4>
-                    <div class=''>
-                        <section class='subProducts'>
-                            <img src={DropBox} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Dropbox</h4>
-                                <p class='text-[0.625rem]'>Store, share, and access files <br />across devices</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={Backup} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Backup</h4>
-                                <p class='text-[0.625rem]'>Automatically back up your devices</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={Sign} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Sign</h4>
-                                <p class='text-[0.625rem]'>Request and add signature to <br />documents</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={DocSend} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>DocSend</h4>
-                                <p class='text-[0.625rem]'>Send documents securely and <br />track activity</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={Capture} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Capture</h4>
-                                <p class='text-[0.625rem]'>Capture screen recording and video <br />messages</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={Replay} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Replay</h4>
-                                <p class='text-[0.625rem]'>Review and approve video faster</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src={Dash} alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Dash(beta)</h4>
-                                <p class='text-[0.625rem]'>Search, organize and find answers</p>                                
-                            </div>
-                        </section>
-                        <section class='subProducts'>
-                            <img src="" alt="" />
-                            <div class='ml-2'>
-                                <h4 class='text-xs'>Early access</h4>
-                                <p class='text-[0.625rem]'>Preview new product experiences</p>                                
-                            </div>
-                        </section>
+                class={`absolute w-[15rem] bg-[#f2eee8] mt-4 ${
+                  isSubDivVisible('Products') ? 'block' : 'hidden'
+                }`}
+                onMouseEnter={() => handleMouseEnter('Products')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <h4 class='font-semibold text-xs mb-4 text-center mt-2'>
+                  Do more than store with dropbox
+                </h4>
+                <div>
+                  <section class='subProducts'>
+                    <img src={DropBox} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Dropbox</h4>
+                      <p class='text-[0.625rem]'>
+                        Store, share, and access files <br />
+                        across devices
+                      </p>
                     </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={Backup} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Backup</h4>
+                      <p class='text-[0.625rem]'>
+                        Automatically back up your devices
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={Sign} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Sign</h4>
+                      <p class='text-[0.625rem]'>
+                        Request and add signature to <br />
+                        documents
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={DocSend} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>DocSend</h4>
+                      <p class='text-[0.625rem]'>
+                        Send documents securely and <br />
+                        track activity
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={Capture} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Capture</h4>
+                      <p class='text-[0.625rem]'>
+                        Capture screen recording and video <br />
+                        messages
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={Replay} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Replay</h4>
+                      <p class='text-[0.625rem]'>
+                        Review and approve video faster
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src={Dash} alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Dash(beta)</h4>
+                      <p class='text-[0.625rem]'>
+                        Search, organize and find answers
+                      </p>
+                    </div>
+                  </section>
+                  <section class='subProducts'>
+                    <img src='' alt='' />
+                    <div class='ml-2'>
+                      <h4 class='text-xs'>Early access</h4>
+                      <p class='text-[0.625rem]'>
+                        Preview new product experiences
+                      </p>
+                    </div>
+                  </section>
+                </div>
               </div>
             </li>
             <li class='ml-2'>
-              <a href='#'>Solutions</a>
+              <a href='#'
+              class='hover:bg-[#f2eee8] pt-7 pb-7'
+              onMouseEnter={() => handleMouseEnter('Solutions')}
+              onMouseLeave={handleMouseLeave}
+              >Solutions</a>
+              <div class={`bg-[#f2eee8] h-[17rem] pb-2 text-xs absolute justify-between mt-4 w-[30rem] ${
+                  isSubDivVisible('Solutions') ? 'flex' : 'hidden'
+                }`}
+                onMouseEnter={() => handleMouseEnter('Solutions')}
+                onMouseLeave={handleMouseLeave}
+                >
+                <section class=''>
+                  <h4 class='font-semibold leading-8 ml-2'>Roles</h4>
+                  <ul>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Creatives</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Sales</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Marketing</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">HR</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">IT</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Team Lead</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Personal</a></li>
+                  </ul>
+                </section>
+                <section>
+                  <h4 class='font-semibold leading-8'>Industries</h4>
+                  <ul>
+                    <li class='leading-8 pr-48 hover:bg-[#e0d5c3]'><a href="#">Construction</a></li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Technology</a></li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Manufacturing</a></li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Media</a></li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Professional Services</a></li>
+                  </ul>
+                </section>
+              </div>
             </li>
             <li class='ml-2'>
-              <a href='#'>Pricing</a>
+              <a class='hover:bg-[#f2eee8] pt-7 pb-7' href='#'>Pricing</a>
             </li>
           </ul>
         </div>
@@ -178,7 +238,25 @@ export default function Nav() {
         </div>
         <div class=''>
           <ul class='flex mt-2'>
-            <li class='ml-2'>Contact</li>
+            <li class='ml-2'>
+              <a href="#">Contact</a>
+              <div class='absolute flex right-64 h-[7rem] w-[30rem] bg-[#f2eee8] text-xs pt-2'>
+                <section>
+                  <h4 class='font-semibold pl-4 leading-8'>Support</h4>
+                  <ul>
+                    <li class='pl-4 leading-8'><a href="#">Help Center</a></li>
+                    <li class='pl-4 leading-8'><a href="#">Community Forum</a></li>
+                  </ul>
+                </section>
+                <section>
+                  <h4 class='font-semibold ml-32 leading-8'>Contact Sales</h4>
+                  <ul>
+                    <li class='ml-32 leading-8'><a href="#">Email</a></li>
+                    <li class='ml-32 leading-8'><a href="#">+44 203 684 0180</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
             <li class='ml-2'>Get App</li>
             <li class='ml-2'>Sign up</li>
             <li class='ml-2'>Login</li>
