@@ -31,7 +31,7 @@ export default function Nav() {
     <div class='flex items-center justify-between'>
       <div class='flex items-center'>
         <div class='flex items-center'>
-          <img src={Logo} alt='dropbox logo' class='h-12 bg-blue-500' />
+          <img src={Logo} alt='dropbox logo' class='h-[3.2rem] bg-blue-500' />
           <span class='font-bold text-2xl ml-2'>Dropbox</span>
         </div>
         <div class='relative'>
@@ -338,7 +338,7 @@ export default function Nav() {
             <li class='ml-2'>Login</li>
           </ul>
         </div>
-        <div class='mr-2 mb-2'>
+        <div class='mr-2 mb-1'>
           <button class='ml-2 mt-2 bg-blue-600 text-white font-bold p-2'>
             Get Started
           </button>

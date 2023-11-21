@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Intro() {
   return (
-    <div class='text-center bg-black text-white'>
+    <div class='text-center bg-black text-white h-[20.44rem]'>
       <h2>
         securely collaborate on your <br />
         content anywhere, anytime
