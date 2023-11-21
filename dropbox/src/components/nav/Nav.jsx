@@ -338,7 +338,7 @@ export default function Nav() {
             <li class='ml-2'>Login</li>
           </ul>
         </div>
-        <div class='mr-2'>
+        <div class='mr-2 mb-2'>
           <button class='ml-2 mt-2 bg-blue-600 text-white font-bold p-2'>
             Get Started
           </button>
