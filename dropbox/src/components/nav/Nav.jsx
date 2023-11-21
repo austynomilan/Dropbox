@@ -31,7 +31,7 @@ export default function Nav() {
     <div class='flex items-center justify-between'>
       <div class='flex items-center'>
         <div class='flex items-center'>
-          <img src={Logo} alt='dropbox logo' class='h-10 bg-blue-500' />
+          <img src={Logo} alt='dropbox logo' class='h-12 bg-blue-500' />
           <span class='font-bold text-2xl ml-2'>Dropbox</span>
         </div>
         <div class='relative'>
@@ -177,43 +177,73 @@ export default function Nav() {
               </div>
             </li>
             <li class='ml-2'>
-              <a href='#'
-              class='hover:bg-[#f2eee8] pt-7 pb-7'
-              onMouseEnter={() => handleMouseEnter('Solutions')}
-              onMouseLeave={handleMouseLeave}
-              >Solutions</a>
-              <div class={`bg-[#f2eee8] h-[17rem] pb-2 text-xs absolute justify-between mt-4 w-[30rem] ${
+              <a
+                href='#'
+                class='hover:bg-[#f2eee8] pt-7 pb-7'
+                onMouseEnter={() => handleMouseEnter('Solutions')}
+                onMouseLeave={handleMouseLeave}
+              >
+                Solutions
+              </a>
+              <div
+                class={`bg-[#f2eee8] h-[17rem] pb-2 text-xs absolute justify-between mt-4 w-[30rem] ${
                   isSubDivVisible('Solutions') ? 'flex' : 'hidden'
                 }`}
                 onMouseEnter={() => handleMouseEnter('Solutions')}
                 onMouseLeave={handleMouseLeave}
-                >
-                <section class=''>
+              >
+                <section>
                   <h4 class='font-semibold leading-8 ml-2'>Roles</h4>
                   <ul>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Creatives</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Sales</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Marketing</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">HR</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">IT</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Team Lead</a></li>
-                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'><a href="#">Personal</a></li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>Creatives</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>Sales</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>Marketing</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>HR</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>IT</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>Team Lead</a>
+                    </li>
+                    <li class='leading-8 pl-2 hover:bg-[#e0d5c3] hover:w-52'>
+                      <a href='#'>Personal</a>
+                    </li>
                   </ul>
                 </section>
                 <section>
                   <h4 class='font-semibold leading-8'>Industries</h4>
                   <ul>
-                    <li class='leading-8 pr-48 hover:bg-[#e0d5c3]'><a href="#">Construction</a></li>
-                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Technology</a></li>
-                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Manufacturing</a></li>
-                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Media</a></li>
-                    <li class='leading-8 hover:bg-[#e0d5c3]'><a href="#">Professional Services</a></li>
+                    <li class='leading-8 pr-48 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Construction</a>
+                    </li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Technology</a>
+                    </li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Manufacturing</a>
+                    </li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Media</a>
+                    </li>
+                    <li class='leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Professional Services</a>
+                    </li>
                   </ul>
                 </section>
               </div>
             </li>
             <li class='ml-2'>
-              <a class='hover:bg-[#f2eee8] pt-7 pb-7' href='#'>Pricing</a>
+              <a class='hover:bg-[#f2eee8] pt-7 pb-7' href='#'>
+                Pricing
+              </a>
             </li>
           </ul>
         </div>
@@ -239,31 +269,79 @@ export default function Nav() {
         <div class=''>
           <ul class='flex mt-2'>
             <li class='ml-2'>
-              <a href="#">Contact</a>
-              <div class='absolute flex right-64 h-[7rem] w-[30rem] bg-[#f2eee8] text-xs pt-2'>
+              <a
+                href='#'
+                class='hover:bg-[#f2eee8] pt-7 pb-7'
+                onMouseEnter={() => handleMouseEnter('Contact')}
+                onMouseLeave={handleMouseLeave}
+              >
+                Contact
+              </a>
+              <div
+                class={`absolute right-[18.3rem] h-[7rem] w-[30rem] bg-[#f2eee8] text-xs pt-2 mt-4 justify-between ${
+                  isSubDivVisible('Contact') ? 'flex' : 'hidden'
+                }`}
+                onMouseEnter={() => handleMouseEnter('Contact')}
+                onMouseLeave={handleMouseLeave}
+              >
                 <section>
                   <h4 class='font-semibold pl-4 leading-8'>Support</h4>
                   <ul>
-                    <li class='pl-4 leading-8'><a href="#">Help Center</a></li>
-                    <li class='pl-4 leading-8'><a href="#">Community Forum</a></li>
+                    <li class='pl-4 leading-8 hover:bg-[#e0d5c3] hover:w-[15rem]'>
+                      <a href='#'>Help Center</a>
+                    </li>
+                    <li class='pl-4 leading-8 hover:bg-[#e0d5c3] hover:w-[15rem]'>
+                      <a href='#'>Community Forum</a>
+                    </li>
                   </ul>
                 </section>
-                <section>
-                  <h4 class='font-semibold ml-32 leading-8'>Contact Sales</h4>
+                <section class='pr-18 w-[15rem]'>
+                  <h4 class='font-semibold leading-8 '>Contact Sales</h4>
                   <ul>
-                    <li class='ml-32 leading-8'><a href="#">Email</a></li>
-                    <li class='ml-32 leading-8'><a href="#">+44 203 684 0180</a></li>
+                    <li class='pl-2 leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>Email</a>
+                    </li>
+                    <li class='pl-2 leading-8 hover:bg-[#e0d5c3]'>
+                      <a href='#'>+44 203 684 0180</a>
+                    </li>
                   </ul>
                 </section>
               </div>
             </li>
-            <li class='ml-2'>Get App</li>
+            <li class='ml-2'>
+              <a
+                href='#'
+                class='hover:bg-[#f2eee8] pt-7 pb-7'
+                onMouseEnter={() => handleMouseEnter('Get App')}
+                onMouseLeave={handleMouseLeave}
+              >
+                Get App
+              </a>
+              <div
+                class={`absolute right-[14.26rem] h-[5rem] w-[15rem] bg-[#f2eee8] text-xs pt-2 mt-4 ${
+                  isSubDivVisible('Get App') ? 'block' : 'hidden'
+                }`}
+                onMouseEnter={() => handleMouseEnter('Get App')}
+                onMouseLeave={handleMouseLeave}
+              >
+                <ul>
+                  <li class='leading-8 pl-4'>
+                    <a href='#'>Desktop app</a>
+                  </li>
+                  <li class='leading-8 pl-4'>
+                    <a href='#'>Mobile app</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
             <li class='ml-2'>Sign up</li>
             <li class='ml-2'>Login</li>
           </ul>
         </div>
-        <div>
-          <button class='ml-2 mt-2'>Get Started</button>
+        <div class='mr-2'>
+          <button class='ml-2 mt-2 bg-blue-600 text-white font-bold p-2'>
+            Get Started
+          </button>
         </div>
       </div>
     </div>
